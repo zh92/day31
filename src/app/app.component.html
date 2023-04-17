@@ -1,0 +1,21 @@
+<h1>hello, world {{value}}</h1>
+
+<app-counter [counter]="10" (onValueChanged)="valueChanged($event)"></app-counter>
+
+<ul *ngIf="historicalValue.length > 0; else noData">
+    <li *ngFor="let i of historicalValue; let idx = index">
+        <h3>
+            {{ idx + 1 }}.{{ i }}
+            <button (click)="deleteValue(idx)">X</button>
+        </h3>
+    </li>
+</ul>
+
+<ng-template #noData>
+    <h2>No Data</h2>
+</ng-template>
+
+<app-my-component title="This is my title"></app-my-component>
+<app-my-component title="Number 9" imageUrl="/assets/9.jpg"></app-my-component>
+
+<app-my-component [title]="title"></app-my-component>
